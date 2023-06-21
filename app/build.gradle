@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'wpxiao.math.solver'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "wpxiao.math.solver"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'ru.noties:jlatexmath-android:0.2.0'
+    implementation group: 'io.noties.markwon', name: 'ext-latex', version: '4.6.2'
+
+// for Cyrillic symbols
+    implementation 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
+
+// for Greek symbols
+    implementation 'ru.noties:jlatexmath-android-font-greek:0.2.0'
+    implementation "io.noties.markwon:core:4.6.2"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

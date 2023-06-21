@@ -1,0 +1,20 @@
+<LinearLayout android:id="@+id/grid_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="4"
+    android:background="?attr/colorOnPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ru.noties.jlatexmath.JLatexMathView
+        android:id="@+id/j_latex_math_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dip"
+        android:background="?attr/colorOnPrimary"
+        app:jlmv_textColor="@color/black"
+        app:jlmv_alignVertical="center"
+        app:jlmv_alignHorizontal="center"
+        app:jlmv_textSize="30sp" />
+
+</LinearLayout>
