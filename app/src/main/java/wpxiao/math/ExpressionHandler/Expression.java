@@ -488,6 +488,8 @@ public class Expression {
 			case Function.ARG+1:return new Result(val[0].arg());
 			case Function.SIN+1:return new Result(Complex.sin(val[0]));
 			case Function.COS+1:return new Result(Complex.cos(val[0]));
+			case Function.MIN+2:return new Result(Complex.min(val[0],val[1]));
+			case Function.MAX+2:return new Result(Complex.max(val[0],val[1]));
 			case Function.TAN+1:return new Result(Complex.tan(val[0]));
 			case Function.ARCSIN+1:return new Result(Complex.arcsin(val[0]));
 			case Function.ARCCOS+1:return new Result(Complex.arccos(val[0]));
@@ -518,6 +520,7 @@ public class Expression {
 			case Function.PERM+1:return new Result(Complex.gamma(new Complex(val[0].re+1,val[0].im)));
 			case Function.PERM+2:return new Result(perm(val[0],val[1]));
 			case Function.COMB+2:return new Result(comb(val[0],val[1]));
+//			case Function.DIFF:return new Result()
 			case Function.PREC:
 				Result.setBase(Result.base);
 				return new Result(new Complex(0)).append("Setting","Precision is set to "+Result.precision+" digits",l,r);
@@ -948,6 +951,13 @@ public class Expression {
 		Complex sAB=gaussIntegrate15(l,r,x0,x2);
 		return adaptiveIntegrate(l,r,x0,x2,sAB,TOL*TOL,0);
 	}
+
+//	Result diff(){
+//		Result res = new Result(2);
+//
+//		res.append("result",);
+//		return res;
+//	}
 
 	// summation
 	Result sum(int l,int r,Complex start,Complex end){

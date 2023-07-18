@@ -18,6 +18,7 @@ class Function{
 	static final int ARG=80;
 	static final int SIN=90;
 	static final int COS=100;
+	static final int CO=66;
 	static final int TAN=110;
 	static final int ARCSIN=120;
 	static final int ARCCOS=130;
@@ -39,6 +40,9 @@ class Function{
 	static final int COMB=290;
 	static final int PREC=300;
 	static final int BASE=320;
+	static final int MAX=330;
+	static final int MIN=340;
+
 
 	static class Serial{ // function name - serial struct
 		String funcName;
@@ -58,38 +62,42 @@ class Function{
 
 	// Register name and serial pair
 	// Different name may direct to same function
-	static final Serial[] funcList={
-	new Serial("exp",EXP),
-	new Serial("ln",LN),
-	new Serial("re",RE),
-	new Serial("im",IM),
-	new Serial("sqrt",SQRT),
-	new Serial("abs",ABS),
-	new Serial("norm",NORM),
-	new Serial("arg",ARG),
-	new Serial("sin",SIN),
-	new Serial("cos",COS),
-	new Serial("tan",TAN),
-	new Serial("arcsin",ARCSIN),
-	new Serial("arccos",ARCCOS),
-	new Serial("arctan",ARCTAN),
-	new Serial("gamma",GAMMA),
-	new Serial("Γ",GAMMA), // greek alphabet version !
-	new Serial("floor",FLOOR),
-	new Serial("ceil",CEIL),
-	new Serial("reg",REG),
-	new Serial("conj",CONJ),
-	new Serial("rand",RAND),
-	new Serial("round",ROUND),
-	new Serial("diff",DIFF,1),
-	new Serial("limit",LIMIT,1),
-	new Serial("eval",EVAL,1),
-	new Serial("fzero",FZERO,1),
-	new Serial("integ",INTEG,1),
-	new Serial("sum",SUM,1),
-	new Serial("perm",PERM),
-	new Serial("comb",COMB),
-	new Serial("prec",PREC),
-	new Serial("base",BASE)
+	static final Serial[] funcList= new Serial[]{
+			new Serial("exp", EXP),
+			new Serial("ln", LN),
+			new Serial("re", RE),
+			new Serial("im", IM),
+			new Serial("sqrt", SQRT),
+			new Serial("diff",DIFF),
+			new Serial("abs", ABS),
+			new Serial("norm", NORM),
+			new Serial("arg", ARG),
+			new Serial("sin", SIN),
+			new Serial("cos", COS),
+			new Serial("co", CO),
+			new Serial("tan", TAN),
+			new Serial("arcsin", ARCSIN),
+			new Serial("arccos", ARCCOS),
+			new Serial("arctan", ARCTAN),
+			new Serial("gamma", GAMMA),
+			new Serial("Γ", GAMMA), // greek alphabet version !
+			new Serial("floor", FLOOR),
+			new Serial("max", MAX),
+			new Serial("min", MIN),
+			new Serial("ceil", CEIL),
+			new Serial("reg", REG),
+			new Serial("conj", CONJ),
+			new Serial("rand", RAND),
+			new Serial("round", ROUND),
+			new Serial("diff", DIFF, 1),
+			new Serial("limit", LIMIT, 1),
+			new Serial("eval", EVAL, 1),
+			new Serial("fzero", FZERO, 1),
+			new Serial("integ", INTEG, 1),
+			new Serial("sum", SUM, 1),
+			new Serial("perm", PERM),
+			new Serial("comb", COMB),
+			new Serial("prec", PREC),
+			new Serial("base", BASE)
 	};
 }

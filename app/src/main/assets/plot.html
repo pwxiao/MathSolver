@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="UTF-8">
+    <title>绘制函数图像</title>
+    <script src="./js/function-plot.js"></script>
+    <link rel="stylesheet" href="./css/mdui.min.css"/>
+  </head>
+  <body >
+    <div>
+
+      <div class="mdui-container">
+        <div class="mdui-textfield mdui-textfield-floating-label">
+          <label class="mdui-textfield-label">输入表达式：</label>
+          <input class="mdui-textfield-input" type="text" id="function-input" />
+        </div>
+      </div>
+
+
+      <style>
+    .mdui-color-custom-1 {
+      background-color: #466558;
+      color: #FFFFFF;
+    }
+  </style>
+      <div class="mdui-container">
+        <button id="draw-button" class="mdui-btn mdui-btn-raised mdui-color-custom-1 mdui-float-right">绘制</button>
+      </div>
+
+
+      <script src="./js/mdui.min.js"></script>
+    </div>
+    <div id="plot"></div>
+  </body>
+  <script src="./index.js"></script>
+</html>

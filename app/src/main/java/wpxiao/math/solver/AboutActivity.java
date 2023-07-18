@@ -30,7 +30,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         textView = findViewById(R.id.textView);
-
+        setTitle("About");
         JLatexMathPlugin.create(textView.getTextSize());
 
 

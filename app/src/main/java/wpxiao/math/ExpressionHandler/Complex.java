@@ -211,6 +211,10 @@ public class Complex {
 		return new Complex(norm*cosd2,norm*sind2);
 	}
 
+	public static String diff(String evaluation){
+		return "ss";
+	}
+
 	public static Complex sin(Complex c){
 		double eip=Math.exp(c.im);
 		double ein=Math.exp(-c.im);
@@ -222,6 +226,20 @@ public class Complex {
 		double ein=Math.exp(-c.im);
 		return new Complex((eip+ein)*Math.cos(c.re)/2,(ein-eip)*Math.sin(c.re)/2);
 	}
+
+
+	public static Complex max(Complex c, Complex c2) {
+		if (c.im != 0 || c2.im != 0)
+			return new Complex(0,0);
+		return new Complex(Math.max(c.re, c2.re));
+	}
+
+	public static Complex min(Complex c, Complex c2) {
+		if (c.im != 0 || c2.im != 0)
+			return new Complex(0,0);
+		return new Complex(Math.min(c.re, c2.re));
+	}
+
 
 	public static Complex tan(Complex c){
 		//return Complex.div(Complex.sin(c),Complex.cos(c)); // not precise enough
