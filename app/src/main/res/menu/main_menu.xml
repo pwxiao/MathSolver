@@ -6,4 +6,8 @@
         android:id="@+id/menu_about"/>
     <item android:title="Item"
         android:id="@+id/menu_draw"/>
+    <item
+        android:id="@+id/menu_nighten"
+        android:title="checkbox"
+        android:checkable="true"/>
 </menu>

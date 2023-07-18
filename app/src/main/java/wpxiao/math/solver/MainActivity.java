@@ -1,9 +1,5 @@
 package wpxiao.math.solver;
 
-import static android.app.PendingIntent.getActivity;
-
-import static org.scilab.forge.jlatexmath.UnderscoreAtom.s;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -16,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -43,35 +40,46 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
-import org.w3c.dom.Text;
-
-import ru.noties.jlatexmath.JLatexMathDrawable;
-import ru.noties.jlatexmath.JLatexMathView;
 import wpxiao.math.ExpressionHandler.Expression;
 import wpxiao.math.solver.Adapter.ButtonAdapter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity implements TextWatcher {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private EditText editText;
     private TextView textView;
-
+    private SharedPreferences prefs;
+    private  boolean isChecked;
+    private boolean isDarkTheme;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setTitle("Solver");
         setContentView(R.layout.activity_main);
+        prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 //        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
+        isChecked = prefs.getBoolean("isNight",true);
+        if(isChecked){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
         editText = findViewById(R.id.editText);
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.view_pager);
         textView = findViewById(R.id.text);
+
+        boolean isFirstRun = prefs.getBoolean("isFirstRun", true);
+        if (isFirstRun) {
+            // 应用程序初次启动，执行初始化操作
+            prefs.edit().putBoolean("isFirstRun", false).apply();
+            textView.setText("试试左右滑动键盘~");
+        } else {
+            // 应用程序已经启动过了
+        }
         hideSoftInputMethod(editText);
         int nightModeFlags = getBaseContext().getResources().getConfiguration().uiMode &
                 Configuration.UI_MODE_NIGHT_MASK;
@@ -122,12 +130,12 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
                 if (cursorPos == endIdx + 1) {
                     builder.setSpan(
-                            new ForegroundColorSpan(R.color.cusor),
+                            new ForegroundColorSpan(Color.RED),
                             startIdx, endIdx + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                     cursorPos = endIdx;
                 } else {
                     builder.setSpan(
-                            new ForegroundColorSpan(Color.BLACK),
+                            new ForegroundColorSpan(Color.WHITE),
                             startIdx, endIdx + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
             }
@@ -213,8 +221,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             String[] buttonNames = new String[]{
                     "sin", "cos", "sqrt", "round",
                     ",", "x", "i", "π",
-                    "log", "rand", "ln", "tan",
-                    "sum", "conj", "fzero", "^",
+                    "max", "rand", "ln", "tan",
+                    "exp", "min", "fzero", "^",
                     "(",")","arctan","arcsin",
                     "arccos","abs","floor"
 
@@ -222,8 +230,8 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             String[] buttonFormula = new String[]{
                     "sin()", "cos()", "sqrt()", "round()",
                     ",", "x",  "i","π",
-                    "log()", "rand()", "ln()", "tan()",
-                    "sum()", "conj()", "fzero()", "^",
+                    "max()", "rand()", "ln()", "tan()",
+                    "exp()", "min()", "fzero()", "^",
                     "(",")","arctan()","arcsin()",
                     "arccos()","abs()","floor()"
 
@@ -251,8 +259,12 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        isChecked = prefs.getBoolean("isNight",true);
         menu.add(Menu.NONE, R.id.menu_about, Menu.NONE, "关于");
         menu.add(Menu.NONE, R.id.menu_draw, Menu.NONE, "绘图");
+        menu.add(Menu.NONE, R.id.menu_nighten, Menu.NONE, "夜间模式")
+                .setCheckable(true)
+                .setChecked(isChecked);
         return true;
     }
 
@@ -263,9 +275,19 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             startActivity(new Intent(this,AboutActivity.class));
             return true;
         } else if (itemId == R.id.menu_draw) {
-            // 处理帮助项的点击事件
+            startActivity(new Intent(this,DrawActivity.class));
             return true;
-        } else {
+        } else if(itemId == R.id.menu_nighten){
+            isChecked = prefs.getBoolean("isNight",true);
+            if(!isChecked){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+            item.setChecked(!isChecked);
+            prefs.edit().putBoolean("isNight", !isChecked).apply();
+            return true;
+        }else {
             return super.onOptionsItemSelected(item);
         }
     }
