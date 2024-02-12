@@ -7,7 +7,7 @@
 
 input
 ```
-f(x*x-1,0)
+fzero(x*x-1,0)
 ```
 The f function includs two parameters,the first is the equation ,for example `x^2-1` means the equation `x^2 -1 = 0`,the second parameter is the approximate value which is uesd to reduce the calculation,
 
