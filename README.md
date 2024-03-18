@@ -59,7 +59,7 @@ fzero(x-9,0)
 9
 ```
 
-![image-20240318185245227](C:\Users\colds\AppData\Roaming\Typora\typora-user-images\image-20240318185245227.png)
+![image-20240318185245227](image-20240318185245227.png)
 
 
 
@@ -71,7 +71,7 @@ fzero(x-9,0)
 y = sin(x)+1
 ```
 
-![image-20240318185113481](C:\Users\colds\AppData\Roaming\Typora\typora-user-images\image-20240318185113481.png)
+![image-20240318185113481](image-20240318185113481.png)
 
 
 
