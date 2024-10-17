@@ -23,6 +23,16 @@ Math Solver is a powerful and versatile tool designed to perform a wide range of
 - **函数图像绘制**：为各种数学函数绘制图像，以可视化关系和行为。
 - **实用函数**：包括floor、ceil、round、max、min等数据处理函数。
 
+## Screenshots - 截图
+<table>
+  <tr>
+    <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_130934.jpg" style="max-width: 400px; height: 700px;"></center></td>
+    <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_131057.jpg" style="max-width: 400px; height: 700px;"></center></td>
+    <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_130951.jpg" style="max-width: 400px; height: 700px;"></center></td>
+
+  </tr>
+</table>
+
 ## Supported Functions - 支持的函数
 
 | Function                     | Description                                  | 函数                   | 描述 |
@@ -80,15 +90,7 @@ plot y = sin(x) + 1
 ```
 
 **Output:** *Displays the graph of the function.*
-## Screenshots - 截图
-<table>
-  <tr>
-    <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_130934.jpg" style="max-width: 400px; height: 700px;"></center></td>
-    <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_131057.jpg" style="max-width: 400px; height: 700px;"></center></td>
-    <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_130951.jpg" style="max-width: 400px; height: 700px;"></center></td>
 
-  </tr>
-</table>
 ## Conclusion - 结论
 
 Math Solver is an essential tool for anyone involved in the field of mathematics, science, or engineering. With its comprehensive set of functions and graph plotting capabilities, it offers a reliable resource for mathematical analysis and visualization.
