@@ -81,7 +81,6 @@ plot y = sin(x) + 1
 
 **Output:** *Displays the graph of the function.*
 ## Screenshots - 截图
-## 截图预览 📱
 <table>
   <tr>
     <td><center><img src="https://pwxiao-blog.oss-cn-hangzhou.aliyuncs.com/typora_picScreenshot_20241017_130934.jpg" style="max-width: 400px; height: 700px;"></center></td>
