@@ -1,5 +1,5 @@
 # Math Solver - 数学求解器
-
+>运算核心使用了Calci-kernel项目：[https://github.com/Iraka-C/Calci-kernel](https://github.com/Iraka-C/Calci-kernel)
 ## Introduction - 介绍
 
 Math Solver is a powerful and versatile tool designed to perform a wide range of mathematical computations. It simplifies solving complex mathematical problems with a set of predefined functions and capabilities including basic arithmetic, advanced functions, derivatives, limits, integrations, and even graph plotting. This tool aims to assist students, educators, researchers, and engineers in their daily computational needs.
